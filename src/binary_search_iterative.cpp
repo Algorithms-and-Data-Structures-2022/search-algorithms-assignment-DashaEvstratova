@@ -4,7 +4,7 @@ namespace assignment {
 
   std::optional<int> BinarySearchIterative::Search(const std::vector<int>& data, int search_element) const {
     int l = 0;
-    int r = static_cast<int>(data.size()) - 1;
+    int r= static_cast<int>(data.size()) - 1;
 
     while (l <= r) {
       int m = l + (r - l) / 2;
