@@ -17,15 +17,18 @@ namespace assignment {
     if (left_index > right_index){
       return std::nullopt;
     }
-    int m = left_index + (right_index - left_index) / 2;
+    int m = (right_index + left_index) / 2;
     if (data[m] == search_element) {
         return m;
     }
+    if (left_index == m && right_index == m){
+      return std::nullopt;
+    }
     if (data[m] < search_element) {
-      left_index = m + 1;
+      left_index = m;
     }
     else if (data[m] > search_element) {
-      right_index = m - 1;
+      right_index = m;
     }
     recursive_helper(data, search_element, left_index, right_index);
     // Tips:
