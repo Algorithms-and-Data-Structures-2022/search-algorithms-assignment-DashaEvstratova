@@ -26,12 +26,14 @@ namespace assignment {
       }
       return std::nullopt;
     }
-    int m = (left_index + right_index) / 2;
+    else {
+      int m = (left_index + right_index) / 2;
       if (data[m] < search_element) {
         return recursive_helper(data, search_element, m, right_index);
       } else {
         return recursive_helper(data, search_element, left_index, m);
       }
+    }
     // Tips:
     // 1. Рассмотрите базовые случаи выхода и рекурсии:
     //    1) индекс левого элемента стал больше индекса правого элемента
