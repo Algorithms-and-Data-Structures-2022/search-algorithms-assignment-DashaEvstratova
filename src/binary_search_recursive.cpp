@@ -14,18 +14,20 @@ namespace assignment {
   std::optional<int> BinarySearchRecursive::recursive_helper(const std::vector<int>& data, int search_element,
                                                              int left_index, int right_index) const {
 
+    if (right_index <= left_index){
+      if (right_index < left_index){
+        return std::nullopt;
+      }
+      if (data[left_index] == search_element){
+        return left_index;
+      }
+    }
     int m = (right_index + left_index) / 2;
-    if (data[m] == search_element) {
-        return m;
-    }
-    if (left_index == m && right_index == m){
-      return std::nullopt;
-    }
     if (data[m] < search_element) {
-      recursive_helper(data, search_element, m, right_index);;
+      return recursive_helper(data, search_element, m, right_index);;
     }
     else if (data[m] > search_element) {
-      recursive_helper(data, search_element, left_index, m);;
+      return recursive_helper(data, search_element, left_index, m);;
     }
     // Tips:
     // 1. Рассмотрите базовые случаи выхода и рекурсии:
@@ -33,6 +35,5 @@ namespace assignment {
     //    2) целевой элемент найден
     // 2. Вызовите рекурсивный метод, изменив границы поиска
     //    в зависимости от неравенства между элементом посередине и целевого элемента
-    return std::nullopt;
   }
 }  // namespace assignment
