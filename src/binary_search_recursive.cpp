@@ -14,7 +14,7 @@ namespace assignment {
   std::optional<int> BinarySearchRecursive::recursive_helper(const std::vector<int>& data, int search_element,
                                                              int left_index, int right_index) const {
 
-    if (right_index <= left_index) {
+    if (right_index - left_index<= 1) {
       if (right_index < left_index) {
         return std::nullopt;
       }
