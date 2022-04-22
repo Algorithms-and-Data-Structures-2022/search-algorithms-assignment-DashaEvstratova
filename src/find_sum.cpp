@@ -6,10 +6,10 @@ namespace assignment {
     int left_point = 0, right_point = static_cast<int>(data.size() - 1);
     while (left_point < right_point) {
       if (data[left_point] + data[right_point] == sum) {
-        return std::make_pair(data[left_point], data[right_point]);
+        return std::make_pair(left_point, right_point);
       }
       if (data[left_point] + data[right_point] <sum) {
-        left_point++;
+        left_point=+1;
       }
       else {
         right_point--;
@@ -19,5 +19,4 @@ namespace assignment {
 
     return std::nullopt;
   }
-
 }  // namespace assignment
